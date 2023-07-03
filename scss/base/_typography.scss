@@ -1,5 +1,27 @@
 @use '../abstracts/sizes';
 
+// Caveat font
+// regular
+@font-face {
+    font-family: 'Caveat';
+    src: url('/fonts/Caveat-Regular.ttf');
+    font-weight: 400;
+}
+
+// bold
+@font-face {
+    font-family: 'Caveat';
+    font-weight: 700;
+    src: url('/fonts/Caveat-Bold.ttf');
+}
+  
+
+$heading-font: 'Caveat', cursive;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+}
+
 h1 { font-size: 4em; }
 h2 { font-size: 3em; }
 h3 { font-size: 2em; }
