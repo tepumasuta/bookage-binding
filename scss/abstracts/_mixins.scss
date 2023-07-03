@@ -1,0 +1,9 @@
+@mixin create-theme(
+    $theme-class, $bg-color
+) {
+    html#{$theme-class} {
+        body {
+            background-color: $bg-color;
+        }
+    }
+}
