@@ -1,10 +1,20 @@
 import express from 'express'
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 8080
 
-app.get('/', (req, res) => {
-  res.send("I'm here for your soul😈")
-});
+// EJS
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}...`))
+// CSS
+app.use(express.static('public'))
+
+app.get('/', (req, res) => res.render('index'))
+
+const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}...`))
