@@ -25,5 +25,12 @@
   },
   "homepage": "https://github.com/tepumasuta/bookage-binding#readme",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100
+  }
 }
