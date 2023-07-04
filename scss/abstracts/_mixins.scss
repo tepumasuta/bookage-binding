@@ -1,9 +1,9 @@
 @mixin create-theme(
-    $theme-class, $bg-color, $text-color
+    $theme-class, $primary, $primary-dark, $primary-light, $text-color
 ) {
     html#{$theme-class} {
         body {
-            background-color: $bg-color;
+            background-color: $primary;
         }
         p, article {
             color: $text-color;

@@ -1,4 +1,9 @@
+@use 'sass:color';
+
 $theme-class: '.night-theme';
-$bg-color: #222222;
-// $text-color: #b886e3;
-$text-color: #777777;
+
+$text-color: #9f00ff;
+
+$primary: #222222;
+$primary-dark: #000;
+$primary-light: color.scale($primary, $lightness: +10%);

@@ -1,4 +1,6 @@
 @use '../abstracts/mixins' as mix;
 @use 'night';
 
-@include mix.create-theme(night.$theme-class, night.$bg-color, night.$text-color);
+@include mix.create-theme(
+    night.$theme-class, night.$primary, night.$primary-dark, night.$primary-light, night.$text-color
+);
