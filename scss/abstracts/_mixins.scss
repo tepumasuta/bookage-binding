@@ -11,3 +11,8 @@
 
     }
 }
+
+@mixin backdrop-filter($filter) {
+    backdrop-filter: $filter;
+    -webkit-backdrop-filter: $filter;
+}
