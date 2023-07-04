@@ -1,6 +1,6 @@
 addEventListener('DOMContentLoaded', function () {
   const sideBar = document.getElementById('side-bar')
-  let leftCallback = null,
+  var leftCallbacks = [],
     callback
 
   let makeCallback = (dx, dy) => e => {
@@ -12,11 +12,11 @@ addEventListener('DOMContentLoaded', function () {
     if (e.button !== 1) return
     objectsPull.cursor.hideOutline()
 
-    leftCallback = callback
-    if (leftCallback !== null) {
-      sideBar.removeEventListener('mousemove', leftCallback)
+    leftCallbacks.push(callback)
+    for (let leftCallback of leftCallbacks) {
+      removeEventListener('mousemove', leftCallback)
     }
-    leftCallback = null
+    leftCallbacks = []
 
     callback = makeCallback(e.offsetX, e.offsetY)
     addEventListener('mousemove', callback)
