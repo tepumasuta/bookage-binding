@@ -9,7 +9,9 @@ addEventListener('DOMContentLoaded', function () {
     endX: window.innerWidth / 2,
     endY: window.innerHeight / 2,
     cursorVisible: true,
+    outlineVisible: true,
     cursorEnlarged: false,
+    delayOutline: true,
     $dot: cursorDot,
     $outline: cursorDotOutline,
 
@@ -135,12 +137,25 @@ addEventListener('DOMContentLoaded', function () {
       const self = this
       if (self.cursorVisible) {
         self.$dot.style.opacity = 1
-        self.$outline.style.opacity = 1
+        self.$outline.style.opacity = self.outlineVisible ? 1 : 0
       } else {
         self.$dot.style.opacity = 0
         self.$outline.style.opacity = 0
       }
     },
+    hideOutline: function () {
+      const self = this
+
+      self.outlineVisible = false
+      self.toggleCursorVisibility()
+    },
+    showOutline: function () {
+      const self = this
+
+      self.outlineVisible = true
+      self.toggleCursorVisibility()
+    },
   }
   cursorObject.init()
+  objectsPull['cursor'] = cursorObject
 })

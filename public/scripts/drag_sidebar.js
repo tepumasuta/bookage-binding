@@ -10,6 +10,7 @@ addEventListener('DOMContentLoaded', function () {
 
   sideBar.addEventListener('mousedown', e => {
     if (e.button !== 1) return
+    objectsPull.cursor.hideOutline()
 
     leftCallback = callback
     if (leftCallback !== null) {
@@ -20,5 +21,9 @@ addEventListener('DOMContentLoaded', function () {
     callback = makeCallback(e.offsetX, e.offsetY)
     addEventListener('mousemove', callback)
   })
-  sideBar.addEventListener('mouseup', () => removeEventListener('mousemove', callback))
+  sideBar.addEventListener('mouseup', () => {
+    objectsPull.cursor.showOutline()
+
+    removeEventListener('mousemove', callback)
+  })
 })
