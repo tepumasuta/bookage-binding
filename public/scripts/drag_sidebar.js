@@ -1,29 +1,40 @@
-addEventListener('DOMContentLoaded', function () {
-  const sideBar = document.getElementById('side-bar')
-  var leftCallbacks = [],
-    callback
+class SideBar {
+  constructor(sideBarNode) {
+    this.sideBar = sideBarNode
+    this.leftCallbacks = []
+    this.callback = null
 
-  let makeCallback = (dx, dy) => e => {
-    sideBar.style.top = `${e.clientY - dy}px`
-    sideBar.style.left = `${e.clientX - dx}px`
+    this.setDragCallbacks()
   }
 
-  sideBar.addEventListener('mousedown', e => {
-    if (e.button !== 1) return
-    objectsPull.cursor.hideOutline()
-
-    leftCallbacks.push(callback)
-    for (let leftCallback of leftCallbacks) {
-      removeEventListener('mousemove', leftCallback)
+  setDragCallbacks() {
+    const makeCallback = (dx, dy) => e => {
+      this.sideBar.style.top = `${e.clientY - dy}px`
+      this.sideBar.style.left = `${e.clientX - dx}px`
     }
-    leftCallbacks = []
 
-    callback = makeCallback(e.offsetX, e.offsetY)
-    addEventListener('mousemove', callback)
-  })
-  sideBar.addEventListener('mouseup', () => {
-    objectsPull.cursor.showOutline()
+    this.sideBar.addEventListener('mousedown', e => {
+      if (e.button !== 1) return
+      objectsPull.cursor.hideOutline()
 
-    removeEventListener('mousemove', callback)
-  })
+      this.leftCallbacks.push(this.callback)
+      for (let leftCallback of this.leftCallbacks) {
+        removeEventListener('mousemove', leftCallback)
+      }
+      this.leftCallbacks = []
+
+      this.callback = makeCallback(e.offsetX, e.offsetY)
+      addEventListener('mousemove', this.callback)
+    })
+    this.sideBar.addEventListener('mouseup', () => {
+      objectsPull.cursor.showOutline()
+
+      removeEventListener('mousemove', this.callback)
+    })
+  }
+}
+
+addEventListener('DOMContentLoaded', function () {
+  const sideBar = new SideBar(document.getElementById('side-bar'))
+  objectsPull['sideBar'] = sideBar
 })
