@@ -1,0 +1,4 @@
+@use 'sass:color';
+
+$light-transparent: color.change(#fff, $alpha: .15);
+$light-transparenter: color.change(#fff, $alpha: .18);

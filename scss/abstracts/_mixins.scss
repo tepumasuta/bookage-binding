@@ -1,14 +1,21 @@
 @mixin create-theme(
-    $theme-class, $primary, $primary-dark, $primary-light, $text-color
+    $theme-class, $text-color,
+    $primary, $primary-dark, $primary-light,
+    $secondary-dark
 ) {
     html#{$theme-class} {
         body {
             background-color: $primary;
+            & ::selection {
+                background-color: $primary-light;
+            }
         }
         p, article {
             color: $text-color;
         }
-
+        .side-bar {
+            box-shadow: 0 .5em 2em 0 $secondary-dark;
+        }
     }
 }
 

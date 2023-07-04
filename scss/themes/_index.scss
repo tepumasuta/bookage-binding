@@ -2,5 +2,7 @@
 @use 'night';
 
 @include mix.create-theme(
-    night.$theme-class, night.$primary, night.$primary-dark, night.$primary-light, night.$text-color
+    night.$theme-class, night.$text-color,
+    night.$primary, night.$primary-dark, night.$primary-light,
+    night.$secondary-dark
 );

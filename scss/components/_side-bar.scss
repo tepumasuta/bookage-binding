@@ -1,3 +1,4 @@
+@use '../abstracts/colors';
 @use '../abstracts/sizes';
 @use '../abstracts/mixins' as m;
 
@@ -10,9 +11,8 @@
     width: sizes.$side-bar-width;
     height: sizes.$side-bar-height;
 
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(85, 31, 135, 0.37);
+    background: colors.$light-transparent;
     @include m.backdrop-filter(blur(sizes.$bg-blur-size));
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: (5em/8);
+    border: (1em/16) solid colors.$light-transparenter;
 }
