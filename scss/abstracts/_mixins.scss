@@ -7,7 +7,6 @@
     $thirdly, $thirdly-dark, $thirdly-light
 ) {
     html#{$theme-class} {
-        
         body {
             & ::selection {
                 background-color: $primary-light;
@@ -32,6 +31,16 @@
     
         #cursor-dot-outline {
             background-color: color.change($thirdly-light, $alpha: 0.7);
+        }
+
+        #scroll-outline {
+            background-color: color.change($primary-dark, $alpha: 0.3);
+            box-shadow: inset (1em/16) 0 0.6em (1em/16) rgba(144, 33, 122, 0.37), 0 .5em 1.2em 0 color.change($thirdly-dark, $alpha: .37);
+        }
+
+        #scrollbar {
+            background-color: $thirdly-light;
+            box-shadow: 0 0 0.4em 0.06em $thirdly-light;
         }
     }
 }

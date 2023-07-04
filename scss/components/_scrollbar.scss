@@ -1,0 +1,24 @@
+@use '../abstracts/sizes';
+@use '../abstracts/mixins' as m;
+
+#scroll-outline {
+    max-width: .8em;
+    position: fixed;
+    top: 1%;
+    right: clamp(0em, .5%, .4em);
+    height: 98%;
+    width: 1vw;
+
+    border-radius: .5vw;
+    @include m.backdrop-filter(blur(sizes.$bg-blur-size / 5));
+    
+}
+
+#scrollbar {
+    position: absolute;
+    left: 30%;
+    top: .5vw - .2vw;
+    width: 40%;
+    border-radius: .2vw;
+    height: 7%;
+}
