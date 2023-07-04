@@ -1,20 +1,37 @@
+@use 'sass:color';
+
 @mixin create-theme(
     $theme-class, $text-color,
     $primary, $primary-dark, $primary-light,
-    $secondary-dark
+    $secondary, $secondary-dark, $secondary-light,
+    $thirdly, $thirdly-dark, $thirdly-light
 ) {
     html#{$theme-class} {
+        
         body {
-            background-color: $primary;
             & ::selection {
                 background-color: $primary-light;
             }
+            background-color: $primary;
         }
         p, article {
             color: $text-color;
         }
+
         .side-bar {
-            box-shadow: 0 .5em 2em 0 $secondary-dark;
+            box-shadow: 0 .5em 2em 0 color.change($secondary-dark, $alpha: .37);
+            &::selection {
+                background-color: color.change($primary, $alpha: .37);
+            }
+        }
+
+
+        #cursor-dot {
+            background-color: $thirdly-light;
+        }
+    
+        #cursor-dot-outline {
+            background-color: color.change($thirdly-light, $alpha: 0.7);
         }
     }
 }

@@ -1,0 +1,32 @@
+@use '../abstracts/sizes';
+
+body, body * {
+    cursor: none;
+}
+
+%cursor-init {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    opacity: 0;
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+#cursor-dot {
+    @extend %cursor-init;
+    width: sizes.$cursor-size;
+    height: sizes.$cursor-size;
+}
+
+#cursor-dot-outline {
+    @extend %cursor-init;
+    width: sizes.$cursor-outline-size;
+    height: sizes.$cursor-outline-size;
+}

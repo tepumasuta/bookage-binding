@@ -4,5 +4,6 @@
 @include mix.create-theme(
     night.$theme-class, night.$text-color,
     night.$primary, night.$primary-dark, night.$primary-light,
-    night.$secondary-dark
+    night.$secondary, night.$secondary-dark, night.$secondary-light,
+    night.$thirdly, night.$thirdly-dark, night.$thirdly-light
 );

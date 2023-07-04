@@ -8,4 +8,10 @@ $primary: #222222;
 $primary-dark: #000;
 $primary-light: color.scale($primary, $lightness: +10%);
 
-$secondary-dark: color.change(#551f87, $alpha: .37);
+$secondary: #6525a0;
+$secondary-dark: color.scale($secondary, $lightness: -10%);
+$secondary-light: color.scale($secondary, $lightness: +10%);
+
+$thirdly: #a02587;
+$thirdly-dark: color.scale($thirdly, $lightness: -10%);
+$thirdly-light: color.scale($thirdly, $lightness: +10%);

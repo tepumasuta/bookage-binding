@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+addEventListener('DOMContentLoaded', function () {
   const sideBar = document.getElementById('side-bar')
   let set = false,
     callback
